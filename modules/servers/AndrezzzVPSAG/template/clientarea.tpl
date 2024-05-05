@@ -64,15 +64,21 @@
                 <div class="col-lg-12 col-sm-12 col-md-12 mb-3">
                     <div class="border p-2">
                         <div class="row w-100">
-                            <div class="col-4 without-mb text-center" tooltip="{if $serverInfo['status'] !== 'running'}Start the VPS{else}Stop the VPS{/if}" data-original-title="" title="">
-                                <a onclick="AndrezzzVPS_API('{if $serverInfo['status'] !== 'running'}Start{else}Stop{/if}');return false;"><i class="fas fa-{if $serverInfo['status'] !== 'running'}play start{else}stop stop{/if} mr-2" aria-hidden="true"></i></a>
-                            </div>
-                            <div class="col-4 without-mb text-center" tooltip="Reboot the VPS" data-original-title="" title="">
-                                <a onclick="AndrezzzVPS_API('Reboot');return false;"><i class="fas fa-sync reboot mr-2" aria-hidden="true"></i></a>
-                            </div>
-                            <div class="col-4 without-mb text-center" tooltip="Connect to the VPS via VNC" data-original-title="" title="">
-                                <a onclick="AndrezzzVPS_VNC();"><img src="{$images['vnc']}" class="vnc"/></a>
-                            </div>
+				<div class="col-4 without-mb text-center" tooltip="{if $serverInfo['status'] !== 'running'}Start the VPS{else}Stop the VPS{/if}" data-original-title="" title="">
+				    <div class="button-label">{if $serverInfo['status'] !== 'running'}Start VPS{else}Stop VPS{/if}</div>
+				    <a onclick="AndrezzzVPS_API('{if $serverInfo['status'] !== 'running'}Start{else}Stop{/if}');return false;"><i class="fas fa-{if $serverInfo['status'] !== 'running'}play start{else}stop stop{/if} mr-2" aria-hidden="true"></i></a>
+				</div>
+
+				<div class="col-4 without-mb text-center" tooltip="Reboot the VPS" data-original-title="" title="">
+				    <div class="button-label">Reboot VPS</div>
+				    <a onclick="AndrezzzVPS_API('Reboot');return false;"><i class="fas fa-sync reboot mr-2" aria-hidden="true"></i></a>
+				</div>
+
+				<div class="col-4 without-mb text-center" tooltip="Connect to the VPS via VNC" data-original-title="" title="">
+				    <div class="button-label">VNC Console</div>
+				    <a onclick="AndrezzzVPS_VNC();"><img src="{$images['vnc']}" class="vnc"/></a>
+				</div>
+<br>
                             <div class="col-md-12" style="margin-top: 5px;">
                                 <label class="form-label d-inline-block;">Uptime:</label>
                                 <span class="form-label dashboard-value d-inline-block mr-2">{$serverInfo['uptime_text']}</span>
